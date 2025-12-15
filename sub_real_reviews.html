@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>실관람객평</title>
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.jpg">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/swiper.css">
+  <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="js/plugin/jquery-1.12.3.js"></script>
+  <script src="js/plugin/jquery.easing.min.js"></script>
+  <script src="js/plugin/swiper.min.js"></script>
+  <script src="js/plugin/wow.min.js"></script>
+  <script src="js/function.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+    body { font-family: 'Noto Sans KR', sans-serif; }
+
+    /* ==========================================================================
+       ★ [헤더 스타일] index.html과 100% 동일하게 교체 (Black Theme) ★
+       ========================================================================== */
+    header {
+        width: 100%; height: 100px; 
+        background: #000; /* 검은색 배경 */
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        position: relative; /* 서브페이지 배치 */
+        z-index: 1000;
+    }
+
+    .container { width: 1200px; margin: 0 auto; position: relative; height: 100%; }
+    .clearfix::after { content: ''; display: block; clear: both; }
+
+    /* 로고 */
+    h1.logo { 
+        position: absolute; left: 0; top: 50%; transform: translateY(-50%); 
+        font-size: 32px; font-weight: 900; margin: 0;
+    }
+    h1.logo a { 
+        color: #fff; text-decoration: none; font-family: 'Anton', sans-serif; letter-spacing: 1px;
+    }
+
+    /* 네비게이션 위치 */
+    header nav { position: absolute; right: 0; top: 35px; } 
+    header nav .gnb > li { float: left; margin-left: 40px; position: relative; }
+    
+    /* GNB 링크 스타일 */
+    header nav .gnb > li > a { 
+        font-size: 18px; font-weight: 700; color: #fff; 
+        padding-bottom: 30px; display: block; text-decoration: none;
+    }
+    header nav .gnb > li:hover > a { color: #ff5e00; }
+
+    /* 드롭다운 서브메뉴 */
+    header nav .sub {
+        position: absolute; top: 65px; left: -20px; width: 400px; 
+        background: #fff; padding: 20px;
+        border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.2); 
+        display: none; z-index: 100; text-align: left;
+    }
+    
+    /* 끊김 방지용 투명 다리 */
+    header nav .sub::before {
+        content: ''; position: absolute; top: -20px; left: 0; width: 100%; height: 20px;
+    }
+
+    header nav .gnb > li:hover .sub { display: block; }
+    
+    header nav .sub ol { float: left; width: 50%; }
+    header nav .sub ol li { margin-bottom: 10px; }
+    header nav .sub ol li a { font-size: 15px; color: #666; display: block; padding: 2px 0; }
+    header nav .sub ol li a:hover { color: #ff5e00; font-weight: bold; }
+    
+    header nav .sub .sub_img {
+        float: right; width: 45%; height: 150px; 
+        background: #ffecd2 url('images/sub_bg_01.jpg') no-repeat center/cover;
+        border-radius: 8px; position: relative; overflow: hidden;
+    }
+    header nav .sub .sub_img p {
+        position: absolute; bottom: 15px; left: 15px; color: #fff; 
+        font-weight: bold; font-size: 14px; z-index: 1; text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    }
+
+    /* LNB 숨김 */
+    header nav .lnb { display: none; }
+
+    /* 기존 서브페이지 콘텐츠 스타일 유지 */
+    .sub_banner { height: 50px; } 
+    article.content { width: 1200px; margin: 50px auto; min-height: 400px; text-align: center; }
+    article.content h2 { 
+        font-size: 40px; font-weight: 900; margin-bottom: 30px; color: #333; 
+        border-bottom: 3px solid #000; padding-bottom: 15px; display: inline-block;
+    }
+    
+    /* 기존 푸터 스타일 유지 */
+    footer { background: #222; color: #999; padding: 50px 0; margin-top: 100px; text-align: center; }
+    footer address { font-style: normal; font-size: 13px; }
+    .fnb, .info { display: none; } 
+  </style>
+</head>
+<body>
+  <div id="wrap">
+    
+    <header>
+      <div class="container clearfix">
+          <h1 class="logo"><a href="index.html">3 Idiots</a></h1>
+          <nav>
+            <ul class="gnb clearfix">
+              <li><a href="#">등장인물</a>
+                <div class="sub clearfix">
+                  <ol>
+                    <li><a href="sub_rancho.html">란초</a></li><li><a href="sub_farhan.html">파르한</a></li><li><a href="sub_raju.html">라주</a></li><li><a href="sub_virus.html">비루 교수</a></li><li><a href="sub_chatur.html">차투르</a></li><li><a href="sub_pia.html">피아</a></li>
+                  </ol>
+                  <div class="sub_img"><p>전설적인 공학 천재들과<br>그들의 유쾌한 반란</p></div>
+                </div>
+              </li>
+              
+              <li><a href="sub_recruit.html">줄거리</a></li>
+              
+              <li><a href="#">하이라이트</a>
+                <div class="sub clearfix">
+                  <ol>
+                    <li><a href="#">갤러리</a></li><li><a href="#">예고편</a></li><li><a href="#">OST</a></li><li><a href="#">제작영상</a></li><li><a href="#">비하인드</a></li>
+                  </ol>
+                  <div class="sub_img"><p>다시 보고 싶은<br>최고의 순간들</p></div>
+                </div>
+              </li>
+              
+              <li><a href="#">후기평</a>
+                <div class="sub clearfix">
+                  <ol>
+                    <li><a href="sub_netizen_ratings.html">네티즌 평점</a></li>
+                    <li><a href="sub_real_reviews.html">실관람객평</a></li>
+                    <li class="last"><a href="sub_critic_reviews.html">평론가평</a></li>
+                  </ol>
+                  <div class="sub_img"><p>여러분의 감동을<br>함께 나누세요.</p></div>
+                </div>
+              </li>
+            </ul>
+            
+            <ul class="lnb clearfix">
+              <li>ENGLISH</li><li>SITEMAP</li>
+            </ul>
+          </nav>
+      </div>
+    </header>
+    <section>
+      <h2 class="sr-only">실관람객평 페이지</h2>
+      <div class="sub_banner"></div>
+
+      <article class="content wow fadeInUp" data-wow-delay="200ms" style="text-align: left;">
+        <h2>실관람객평</h2>
+        <p style="margin-top: 20px; font-size: 18px; color: #666;">실관람객들의 생생한 후기를 확인하세요.</p>
+
+        <div class="max-w-5xl mx-auto bg-white shadow-xl rounded-xl overflow-hidden mt-6 border-t-8 border-yellow-400" style="text-align: left;">
+            <!-- Header -->
+            <div class="bg-yellow-100 p-8">
+                <h1 class="text-3xl font-bold text-yellow-800 mb-2">영화 &lt;세 얼간이&gt; 관람객 반응 심층 분석</h1>
+                <p class="text-lg text-yellow-700 italic font-serif">"All is Well! (알 이즈 웰)"</p>
+            </div>
+
+            <!-- Summary Statistics -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-6 border-b border-gray-200 text-center">
+                <div>
+                    <p class="text-gray-500 text-sm uppercase tracking-wide">Satisfaction Rate</p>
+                    <p class="text-3xl font-bold text-green-600">100%</p>
+                </div>
+                <div>
+                    <p class="text-gray-500 text-sm uppercase tracking-wide">Most Common Score</p>
+                    <p class="text-3xl font-bold text-yellow-500">10 Points</p>
+                </div>
+                <div>
+                    <p class="text-gray-500 text-sm uppercase tracking-wide">Key Emotion</p>
+                    <p class="text-3xl font-bold text-blue-600">Inspiration</p>
+                </div>
+            </div>
+
+            <!-- Charts Container -->
+            <div class="p-8 grid grid-cols-1 lg:grid-cols-2 gap-10">
+                
+                <!-- Chart 1: Rating Distribution -->
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+                    <h2 class="text-xl font-bold mb-4 text-gray-700 border-l-4 border-yellow-400 pl-3">Rating Distribution (User vs Critic)</h2>
+                    <div class="h-64">
+                        <canvas id="ratingChart"></canvas>
+                    </div>
+                    <div class="mt-4 text-sm text-gray-600 bg-yellow-50 p-4 rounded-lg">
+                        <p><strong>해설:</strong> 관람객의 <strong>90% 이상</strong>이 10점 만점을 주었습니다. 데이터에서 흥미로운 점은 관람객들이 평론가들의 낮은 점수(6~7점대)를 언급하며 이를 비판하고 10점을 주는 경향이 뚜렷했다는 것입니다.</p>
+                    </div>
+                </div>
+
+                <!-- Chart 2: Keyword Impact -->
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+                    <h2 class="text-xl font-bold mb-4 text-gray-700 border-l-4 border-green-400 pl-3">Impact Factors</h2>
+                    <div class="h-64">
+                        <canvas id="factorChart"></canvas>
+                    </div>
+                    <div class="mt-4 text-sm text-gray-600 bg-green-50 p-4 rounded-lg">
+                        <p><strong>해설:</strong> 관람객들은 단순한 재미(Comedy)를 넘어, **'인생의 교훈(Life Lessons)'**과 한국의 **'교육 현실(Education Reality)'**에 대한 공감을 가장 큰 감동 요인으로 꼽았습니다. 많은 이들이 미래에 대한 불안감을 해소하기 위해 이 영화를 반복 관람(Re-watch)하고 있습니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Best User Comments -->
+            <div class="p-8 bg-gray-50">
+                <h3 class="text-2xl font-bold mb-6 text-gray-800">Best User Reviews</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-white p-5 rounded-lg shadow border-l-4 border-yellow-400">
+                        <p class="italic text-gray-600">"인생에 지침이 될만한 책 10권을 2시간 만에 읽은 느낌이다."</p>
+                        <p class="text-right text-xs text-gray-400 mt-2">- jong****</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-lg shadow border-l-4 border-blue-400">
+                        <p class="italic text-gray-600">"서커스의 사자는 채찍이 두려워 묘기를 부리지만, 잘 훈련됐다고 하지 교육받았다고 하지 않는다."</p>
+                        <p class="text-right text-xs text-gray-400 mt-2">- mmor****</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-lg shadow border-l-4 border-green-400">
+                        <p class="italic text-gray-600">"35살의 나이에 심장을 따라 회사를 그만두고 새로 시작하고 있다.. 알이즈웰"</p>
+                        <p class="text-right text-xs text-gray-400 mt-2">- ju28****</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-lg shadow border-l-4 border-purple-400">
+                        <p class="italic text-gray-600">"이 영화 거짓말 1도 없이 오늘이 딱 100번째다. 볼 때마다 심장 뛴다."</p>
+                        <p class="text-right text-xs text-gray-400 mt-2">- assi****</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-5xl mx-auto mt-2 text-right">
+            <p style="font-size: 16px; color: #888;">
+                출처: Google. (2025). Gemini (Canvas version) [Large language model]. https://gemini.google.com/
+            </p>
+        </div>
+
+        <script>
+            // Chart 1: Rating Distribution Data
+            const ratingCtx = document.getElementById('ratingChart').getContext('2d');
+            new Chart(ratingCtx, {
+                type: 'pie',
+                data: {
+                    labels: ['10 Points (Perfect)', '9 Points', '8 Points'],
+                    datasets: [{
+                        label: 'User Ratings',
+                        data: [80, 5, 3], // Approximate counts based on the provided text
+                        backgroundColor: [
+                            'rgba(255, 206, 86, 0.8)', // Yellow for 10
+                            'rgba(54, 162, 235, 0.6)', // Blue for 9
+                            'rgba(75, 192, 192, 0.6)'  // Green for 8
+                        ],
+                        borderColor: '#ffffff',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom' }
+                    }
+                }
+            });
+
+            // Chart 2: Impact Factors Data
+            const factorCtx = document.getElementById('factorChart').getContext('2d');
+            new Chart(factorCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Life Lessons (인생 교훈)', 'Education Reality (교육 현실)', 'Comedy & Fun (재미)', 'Tears/Touching (감동)', 'Re-watch Value (N차 관람)'],
+                    datasets: [{
+                        label: 'Mention Frequency',
+                        data: [95, 88, 75, 82, 60], // Semantic weight based on text analysis
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.6)',
+                            'rgba(54, 162, 235, 0.6)',
+                            'rgba(255, 206, 86, 0.6)',
+                            'rgba(75, 192, 192, 0.6)',
+                            'rgba(153, 102, 255, 0.6)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            max: 100
+                        }
+                    }
+                }
+            });
+        </script>
+      </article>
+    </section>
+    
+    <footer>
+      <div class="fnb">
+        <a href="#" class="sitemapOpen">
+          <h3 class="title">CLIO COSMETICS SITEMAP<span>펼쳐보기</span></h3>
+        </a>
+
+        <ul class="clearfix">
+          <li>
+            <a href="sub_ceo.html">영화소개</a>
+            <ol class="fnb_sub">
+              <li><a href="sub_ceo.html">&middot; CEO인사말</a></li>
+              <li><a href="#">&middot; Vision</a></li>
+              <li><a href="#">&middot; 문화경영</a></li>
+              <li><a href="#">&middot; 연구개발</a></li>
+              <li><a href="sub_ci.html">&middot; CI</a></li>
+            </ol>
+          </li>
+
+          <li>
+            <a href="#">등장인물</a>
+            <ol class="fnb_sub">
+              <li><a href="sub_rancho.html">&middot; 란초</a></li>
+              <li><a href="sub_farhan.html">&middot; 파르한</a></li>
+              <li><a href="sub_raju.html">&middot; 라주</a></li>
+              <li><a href="sub_virus.html">&middot; 비루 사하스트라부데</a></li>
+              <li><a href="sub_chatur.html">&middot; 차투르 라말링감</a></li>
+              <li><a href="sub_pia.html">&middot; 피아</a></li>
+            </ol>
+          </li>
+
+          <li>
+            <a href="sub_recruit.html">줄거리</a>
+            <ol class="fnb_sub">
+              <li><a href="sub_recruit.html">&middot; 전체 줄거리</a></li>
+              <li><a href="#">&middot; 명장면</a></li>
+              <li><a href="#">&middot; 명대사</a></li>
+            </ol>
+          </li>
+
+          <li>
+            <a href="#">하이라이트</a>
+            <ol class="fnb_sub">
+              <li><a href="#">&middot; 갤러리</a></li>
+              <li><a href="#">&middot; 예고편</a></li>
+              <li><a href="#">&middot; OST</a></li>
+              <li><a href="#">&middot; 제작영상</a></li>
+              <li><a href="#">&middot; 비하인드</a></li>
+            </ol>
+          </li>
+
+          <li>
+            <a href="#">후기평</a>
+            <ol class="fnb_sub">
+              <li><a href="#">&middot; 네티즌 평점</a></li>
+              <li><a href="sub_real_reviews.html">&middot; 실관람객평</a></li>
+              <li><a href="sub_critic_reviews.html">&middot; 평론가평</a></li>
+            </ol>
+          </li>
+
+          <li>
+            <a href="#">SNS</a>
+            <ol class="fnb_sub">
+              <li><a href="#">&middot; facebook</a></li>
+              <li><a href="#">&middot; instagram</a></li>
+              <li><a href="#">&middot; youtube</a></li>
+              <li><a href="#">&middot; blog</a></li>
+            </ol>
+          </li>
+        </ul>
+      </div>
+
+      <div class="info">
+        <ul class="policy clearfix">
+          <li><a href="#">저작권보호정책</a></li>
+          <li><a href="#">개인정보처리방침</a></li>
+          <li><a href="#">이메일무단수집거부</a></li>
+          <li><a href="#" class="top">TOP</a></li>
+        </ul>
+
+        <div class="familysite">
+          <a href="#" class="familysiteOpen">패밀리사이트<span>이동하기</span></a>
+          <ul>
+            <li><a href="https://www.clubclio.co.kr/" target="_blank">클럽 클리오</a></li>
+            <li><a href="http://www.cliocosmetic.com/" target="_blank">클리오</a></li>
+            <li><a href="http://www.periperacosmetic.com/" target="_blank">페리페라</a></li>
+            <li><a href="http://www.goodalcosmetic.com/" target="_blank">구달</a></li>
+            <li><a href="http://www.dermatory.com/" target="_blank">더마토리</a></li>
+            <li><a href="http://www.healingbird.co.kr/" target="_blank">힐링 버드</a></li>
+          </ul>
+        </div>
+  
+        <address>
+          고객상담실 : 080-080-1510 월~금 : 09:00 ~ 18:00, 주말/공휴일 휴무<br>
+          본 페이지는 상업적 목적이 아닌 개인 포트폴리오용으로 제작되었습니다.<br>
+          &copy; 20xx Sample. All Rights Reserved.        
+        </address>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/initial_function.js"></script>
+</body>
+</html>
